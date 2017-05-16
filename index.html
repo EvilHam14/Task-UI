@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Vue Tester</title>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <section id="container">
+        <transition-group name="slide-fade">
+          <li class="task" v-for="task in tasks" v-on:click="task.isActive = !task.isActive" v-bind:class="{selected: task.isActive}" v-bind:key="task" v-text="task.name"></li>
+        </transition-group>
+        <div class="input-container">
+          <input type="text" v-model="newTask" v-on:keyup.enter="addTask" placeholder="new task">
+          <button v-on:click="addTask">Submit</button>
+        </div>
+
+    </section>
+  </body>
+  <script type="text/javascript" src="https://unpkg.com/vue"></script>
+  <script type="text/javascript" src="script.js"></script>
+</html>
